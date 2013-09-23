@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	<table>
+		{% for i in a%}
+		<tr>
+			<td>{{i.id}}</td><td><a href="/content/{{i.id}}/">{{i.title}}</a></td>					
+		</tr>
+		{% endfor %}
+		<tr>
+			<td><input type="button" value="发帖" onclick="location.assign('/index/')"/></td>
+		</tr>	
+	</table>
+</body>
+</html>

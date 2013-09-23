@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	@import url('/static/css/img.css')
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	<div>
+	{% for img in image%}
+		<img class="nav" src="/static/img/{{img}}"/>
+	{% endfor %}
+	</div>
+</body>
+</html>

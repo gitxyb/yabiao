@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	{% for i in a %}
+	<blockquote>{{i.title}}</blockquote>
+		<fieldset>
+			<legend>{{i.content}}</legend>
+		</fieldset>
+	<img src="/static/{{i.img}}" alt="ziliao"/> 
+	{% endfor %}
+</body>
+</html>

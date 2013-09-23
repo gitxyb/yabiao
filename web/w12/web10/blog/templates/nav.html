@@ -1,0 +1,11 @@
+<div>
+	<ul>
+		{% for nav in nav_list%}
+			{% if nav == "首页" %}
+				<li><a href="/index/" />{{nav}}</a></li>			
+			{% else %}
+				<li><a href="/title/{{nav.id}}" />{{nav}}</a></li>
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>

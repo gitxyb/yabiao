@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{%block title%}test page{%endblock%}</title>
+        <style type="text/css">
+        #main{
+            width: 900px;
+            margin: 0 auto;
+        }
+        #header{
+            height: 100px;
+            background-color: red;
+        }
+        #header li{
+            display: inline-block;
+            width: 60px;
+        }
+
+        #left{
+            width: 300px;
+            float:left;
+        }
+
+        #right{
+            width: 550px;
+            float: right;
+        }
+       #footer{
+            border: 1px solid black;
+            height: 80px;
+            clear: both;
+            background-color: blue;
+        }
+        </style>
+        <script type="text/javascript">
+        </script>
+    </head>
+    <div id="main">
+        <div id="header">
+        {%block header%}
+        <ul>
+            {%for nav in nav_list%}
+            <li><a href="/nav/{{nav.id}}/">{{nav.name}}</a> </li>
+            {%endfor%}
+        </ul>
+        {%endblock%}
+        </div>
+        <div id="content">
+            <div id="left">
+            {%block left%}left
+            {%endblock%}
+            </div>
+            <div id="right">
+            {%block right%}right
+            {%endblock%}
+            </div>
+        </div>
+        <div id="footer">
+            {%block footer%}footer
+            {%endblock%}
+        </div>
+    </div>
+    <body>
+    </body>
+</html>

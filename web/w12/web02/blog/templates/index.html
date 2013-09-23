@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>{{title}}</title>
+	<style>
+	@import url('/static/css/index.css')
+	</style>
+	<script src="/static/js/index.js">
+	</script>
+</head>
+<body>
+	<h2> 商品列表</h2><br/>
+	{% for nav in nav_list %}
+		<li>{{nav}}</li>
+	{% endfor %}
+	<h4>^3^</h4>
+	<div>
+		<img  id="pic" src="/static/img/dog1.jpg" />
+	</div>
+</body>
+</html>

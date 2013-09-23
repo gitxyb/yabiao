@@ -1,0 +1,473 @@
+BS:（浏览器与服务器）
+
+	IP地址
+
+	http协议：超文本传输协议
+
+B发送请求给S
+S相应请求通过（html）发送给B
+
+url————>http://主机/资源（协议+主机+资源）
+
+apache server
+
+俩位置：
+	配置文件的位置：
+		/etc/httpd/conf/httpd.conf
+
+			DocumentRoot --> 
+	html文件的位置：
+		/var/www/html/
+
+日志文件：
+
+	/etc/httpd/log/access(访问日子) error(错误日志)
+
+service httpd start|stop|restart|status
+
+html 超文本标记语言
+
+行级标签:	紧凑显示在同行内！
+
+ 	文字级别的标签：
+
+		<em>、<i>（斜体）\<strong>、<big>、<b>(粗体)\<code>(定义计算机代码文本)
+
+		<!--hello-->（注释信息）
+		/*       */（注释）
+
+ 	链接标签：
+
+		<a href="url">显示文字</a>
+
+		锚点链接：
+
+			<a name="锚点名">定义锚点
+
+			<a href="#锚点名">链接到锚点链接</a>
+
+	图片：
+
+		<img src="url" title="" alt="" />
+
+	特殊字符显示：
+
+		<pre></pre>空白符显示   &nbsp
+
+		"<" (&lt)         ">" (&gt)
+
+块级标签：	独立成行！
+	
+	标题：
+
+		<h1></h1>……………………<h6></h6>
+
+	段落：
+
+		<p></p>
+
+		<blockquote></blockquote>
+			<fieldset>
+				<legend></legend>
+			</fieldset>
+
+		<div> 块级容器	<span> 行级容器
+
+		div 可以包含其它标签，但反过来不行。
+
+		例：div 包含 p ,但p 不能 套用 div。
+
+	列表：
+
+	    定义列表：
+		<dl>
+			<dt></dt>
+			<dd></dd>
+			<dd></dd>
+			<dt></dt>
+			<dd></dd>
+			<dd></dd>
+		</dl>
+	    有序列表：
+		<ol>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	    无序列表：
+		<ul>	样式：circle空心圆,square小方块	（默认实心圆）
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+	表格：
+
+		<table>
+			<tr><th></th></tr>
+			<tr><td></td></tr>
+		</table>
+
+	表单：
+		<input type="text" />	 (placeholder="Username")HTML5的新属性
+		<input type="password" />	placeholder="Password"
+		<input type="radio" value="male" name="sex" checked="checked" id="id"/>(单选)( name表示相同属性名；checked表示默认选项;<label for="id">表示模糊区域选择)
+		<input type="checkbox" />（多选）
+		<input type="submit" />（提交）
+		<input type="button" />（按钮）
+		<input type="file" />（上传文件）
+		<input type="reset" />（重置）
+		<input type="hidden" />（隐含字段）
+		<textarea rows="行" cols="列"></textarea>(大文本框)
+		<select>			(下拉菜单)
+			<option></option>
+			<option></option>
+			<option></option>
+			<option></option>
+			<option></option>
+		</select>
+
+Css(Cascading style sheet 层叠样式):
+
+	前沿（html----结构；css----结构表现；）（结构标签的表现：颜色、大小等）
+
+	html元素显示顺序：
+
+		内联样式：标签的“style”属性里；（最高优先）
+			基本样式：字体
+				font-family:serif|sans-serif
+				font-style:
+				font_size:
+				font-weight:
+				……………………等
+				文字
+				text-align：
+				text-indent:
+				letter-spacing:
+				word=spacing:
+				……………………等
+		内嵌样式：<style> 标签内；
+			选择器：
+				标签选择器：
+					标签名{样式：样式值}（优缺点：应用到所有标签中）
+				类选择器：
+					以“.”开头，自定义的选择器；Html所对应的标签属性中，标记class=“”(一个标签可使用多个可以应用到类选择器，一个类选择器可以应用到多个标签上。)
+				id选择器：
+					以“#”开头，自定义的：自动对应html标签的id属性，html中标签的id值一定是唯一的。
+				伪元素选择器：
+					标签的动作或状态；
+						例：a:hover{ }
+						例：以链接为例：text-decoration:none 表示链接没有下划线；
+							     text-decoration:underline 表示给文本添加一条下划线；
+							     font-size:30px 表示标签变化的大小（前提是与原大小要区分开）		
+				关联选择器：
+				组合选择器：
+					选择器1 选择器2 {}（层次型的关系）
+				全局选择器：
+					例:h1,h2,h3,h4,h5,h6{} 一次设置多个标签，让其具有相同样式。
+				
+			发生冲突优先级问题：
+					（内联>id选择器>类选择器>标签选择器）
+
+
+样式与html分离：
+
+	命名：*.css
+
+	html导入css:
+
+			1.<link rel="" type="" href="">
+			2.<style>
+				@import url()
+			  </style>
+	优先级：本地优先（导入在前）
+
+box模型：
+	border（边框） *****border-radius:边框为圆角***********
+	margin(外边距)（4个：上、右、下、左）（2个：（上下）（左右））（居中：（上下），auto） 
+	padding（内边距） 
+	element（元素）
+
+	布局：
+		自然布局（无布局）
+
+		行级标签：紧凑显示
+
+		块级标签：独立成行
+
+		代码顺序：自上而下	
+
+		流动布局
+
+		float：left|right
+			clear：left/right/both(清除浮动)	
+
+		定位布局：position
+			相对布局：position：relative;
+				top:	y坐标
+				left:	x坐标
+				（相对于原始位置，原来位置保留，原来宽度不变。）
+			绝对布局：
+				position:absolute;
+				参照最近定位的祖先元素；
+				原始位置不保留；
+				宽度——由内容决定；
+			重叠处理：
+				z-index;
+				默认的值为0；
+				显示最大值；
+
+			
+
+图片，背景设置：
+
+	Css	都可设定
+
+	background-color:
+	background-image:url(图片)
+	
+	background-repeat:
+	repeat 	默认。背景图像将在垂直方向和水平方向重复。
+	repeat-x 背景图像将在水平方向重复。
+	repeat-y背景图像将在垂直方向重复。
+	no-repeat背景图像将仅显示一次。
+	inherit 规定应该从父元素继承 background-repeat 属性的设置
+
+
+	background-position:
+   	 * top left
+    	* top center
+    	* top right
+    	* center left
+    	* center center
+    	* center right
+    	* bottom left
+    	* bottom center
+    	* bottom right
+	如果您仅规定了一个关键词，那么第二个值将是"center"。
+	默认值：0% 0%。
+
+	background-attachment:(总是跟着页面走)
+		fixed;
+
+内容溢出：
+
+	现象：连续多个字符，中间没有空白符、标点，语法上认为是单词，单词不换行；
+
+	overflow：hidden
+	
+元素显示：
+
+	visibity:hidden
+		只是隐藏，位置保留。
+	display:none
+		设定元素的显示类型。（none;block——块级标签；inline——行及标签）
+
+Javascript:
+
+	Html----结构  css----针对结构（标签）进行表现  Js----行为，浏览器动态变化
+
+	基于对象 和 事件驱动的 脚本语言
+
+	使用<script>标签：
+		alert	弹出对话框
+
+		document.write	输出内容
+	作为url使用：
+
+		<a> 的使用
+
+	标签的事件属性中：
+		<input type="button" onclick="alert("hello")">
+
+	逻辑处理：
+
+		输入、处理、输出！！！！！！（不要在处理中进行输出）
+
+	函数：
+		alert() 	弹出消息框
+		document()	输出到当前窗口
+		prompt("输入考试成绩",0)
+		parseInt()	数值型的整型字符串
+		parseFloat()	数值型的浮点型字符串
+		typeof()	查看数据类型
+
+	if:
+
+		略
+
+	入口：switch(表达式)
+	表达式匹配（等于）case值，执行case中的语句（语句块），执行完后，继续执行下面的语句。遇到break结束switch。
+
+	while:
+
+		while(条件表达式语句){
+				执行的语句
+			}
+		在数据处理前，要先判定其有效性，然后进行处理。
+
+	do{
+		执行的语句
+
+	}while(条件表达式);必须加分号  至少要执行一次；
+
+	for (初值；终值；步进){
+		
+	
+	}	
+
+Js函数function:
+		略
+
+Js对象：
+
+	通过函数的方式定义类的构造方法。
+
+	函数名(构造方法)是类名：
+		首字母大写
+
+		this表示当前对象
+	
+	对象的属性：
+		this.属性名 = 值
+
+	实例化对象：
+		Var 对象变量 = new 构造方法（）；
+	
+	对象的方法：
+
+		注册机制
+		function Person(name){
+			this.name = name;
+			this.getName = getName;
+		}
+		function getName(){
+			return this.name;
+		}
+
+	 参数的传递：
+
+		 参数是对象，传址对象；
+		 参数是数据类型，船只调用；
+
+	Object对象:
+
+	String对象：
+
+		属性：length
+
+	**获取html标签对象：
+				document.getElementById(html标签id属性值)
+
+	   对象.value属性 	获取数据
+
+	   html标签中文字内容innerHTML进行赋值动作 （双标签）
+
+	Math（算数）对象：
+
+		去尾的方式：（上舍入）ceil、（下舍入）floor、（四舍五入）round
+
+	Date:(时间)
+
+		setTimeout(“可执行的代码字符串方式”，延迟时间以毫秒单位)
+		一次性的计划任务；
+
+		setInterval("代码",毫秒数)
+		周期性工作；
+
+		clearInterval(id)
+		clearTimeout(id)
+	
+	数组：（new Array()）
+
+		三种形式：空的；个数；多个参数；
+
+		属性：
+			length
+	
+	window 对象：
+
+		弹出框：alert;
+		      prompt;
+		      confirm;
+
+	Js事件处理：
+
+		onclick:
+		onChange:
+		onFocus:
+		onBlur
+		onMouseOver:
+		onMouseOut:
+		onMouseMove:
+		onload:
+		onSubmit:
+		onMouseDown:
+		onMouseUp:
+		事件机制：
+			1、事件源；
+			2、发生事件；
+			3、事件处理程序；
+
+
+		document对象：
+				getElementById
+				getElementsByTagName
+				getElementsByName
+		
+		location对象：
+
+		screen对象:
+
+		history对象:
+	
+		navigator对象:
+
+	DOM：
+		元素节点：
+		属性节点：
+		文本节点：
+
+		属性与方法：
+			nodeName;	查找节点名
+			nodeValue;	查找节点值
+			nodeType;	查找节点属性
+			firstChild;	首个子节点
+			lastChild;	最后一个子节点
+			childNodes;	所有的子节点
+			previousSibling;	
+			nextSibling;
+			setAttribute;	创建节点属性
+			parentNode;	查找父节点
+
+			hasChildNodes();
+			createElement();	创建标签名
+			createTextNode();	
+			appendChild();	给标签里加子标签
+			removeChild();	删除子标签
+			replaceChild();	替换子标签
+			insertBefore()	
+
+
+
+Django:
+	django-1.5.2     及    手册
+	import django
+	django.VERSION	(查看版本号)
+
+
+	开发框架	:
+		基本工作流程；
+		url请求体现在，url.py
+	路径：
+
+		查找路径：import  os
+
+			os.getcwd()
+
+		将文件的内容，以列表的形式显示出来：
+					
+				os.listdir(文件地址)
+
+
+

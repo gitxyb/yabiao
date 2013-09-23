@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	{% include 'nav.html' %}	
+	<div>
+		<ul>
+			{% for i in tit%}
+			<li><a href="/content/{{i.id}}">{{i.title}}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+</body>
+</html>

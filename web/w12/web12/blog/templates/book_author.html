@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	<h1>还有一些参与本书的作者：</h1>
+	{% for i in book.author.all %}
+		<h3>{{i.name}}</h3><br/>
+	{% endfor %}
+</body>
+</html>

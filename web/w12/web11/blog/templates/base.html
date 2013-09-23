@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+		#main{
+			width:1200px;
+			margin: 0 auto;	
+		}
+		#header{
+			height:50px;
+			background-color:#6184A6
+		}
+		#header li{
+			display:inline-block;
+			width:60px;
+		}
+		#content{
+			width:1000px;
+			margin:10px auto;	
+/*			float:left;
+			position:relative;
+			left:100px; */
+		}
+/*		#content h1{
+			text-align:center;	
+		}
+		#content img{
+			position:relative;
+		}*/
+		#left{
+			width:550px;
+			float:left;
+		}
+		#right{
+			width:600px;	
+			float:right;
+		}
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+		{% block header%}
+			<ul>
+				{% for nav in nav_list%}
+					{% if nav.name == "首页" %}
+						<li><a href="/index/" /><h3>{{nav.name}}</h3></a></li>
+					{% else %}
+						<li><a href="/title/{{nav.id}}" />{{nav.name}}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endblock %}
+		</div>
+		<div id="content">
+		{% block content %}
+		{% endblock %}
+			<div id="left">
+			{% block left%}
+			{% endblock %}
+			</div>
+			<div id="right">
+			{% block right%}
+			{% endblock %}
+			</div>
+		</div>
+		<div id="footer">
+		</div>
+	</div>
+</body>
+</html>

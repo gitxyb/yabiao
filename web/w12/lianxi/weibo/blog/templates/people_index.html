@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+<div>
+	<h3>欢迎来到{{user}}的主页</h3>
+	<input type="button" value="登出" onclick="location.assign('/logout/')">
+	<form action="/people_index/{{user.id}}/" method="post">{% csrf_token %}
+		<table>
+			<tr><td>title:</td><td><input type="text" name="title" /></td></tr>
+			<tr><td>content:</td><td><textarea name="content" /></textarea></td></tr>
+			<tr><td><input type="submit" value="发帖"/></td></tr>
+			<tr><td><input type="button" value="返回" onclick="location.assign('/index/')"/></td></tr>
+		</table>
+	</form>
+</div>
+<hr/>
+<div>
+	{% for i in send %}
+		<h3>发帖人：{{i.user}}</h3>
+		<p>标题：{{i.u_title}}</p>
+		<p>内容：{{i.u_content}}</p>
+		<p>时间：{{i.u_date}}</p>
+	{% endfor %}
+</div>
+{% for contact in send.paginator.page_range %}
+	&nbsp;
+	{% if contact == send.number%}
+		{{contact}}
+	{% else %}
+		<a href="?page={{contact}}" style="text-decoration:none">{{contact}}</a>
+	{% endif %}
+{% endfor %}
+<div class="pagination">
+	<span class="step-links">
+		{% if send.has_previous %}
+			<a href="?page={{send.previous_page_number}}">上一页</a>
+		{% endif %}
+		<span class="current">
+			Page{{send.number}} of {{send.paginator.num_pages}}.
+		</span>
+		{% if send.has_next %}
+			<a href="?page={{send.next_page_number}}">下一页</a>
+		{% endif %}
+	</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+<table>
+	<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+		<tr>
+			<td><label>用户名：{{uf.username}}</label></td><!-- {{uf.username}} username为字段名 -->
+		</tr>
+		<tr>
+			<td><label>密码：{{uf.password}}</label></td>
+		</tr>
+		<tr>
+			<td><label>Email：{{uf.email}}</label></td>
+		</tr>
+		<tr>
+			<td><label>生日：{{uf.birthday}}</label></td>
+		</tr>
+		<tr>
+			<td><label>性别：{{uf.sex}}</label></td>
+		</tr>
+		<tr>
+			<td><label>头像：{{uf.headimg}}</label></td>
+		</tr>
+		<tr>
+			<td><label>自我描述：{{uf.text}}</label></td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="注册" /></td>
+		</tr>
+	</form>
+</table>
+</body>
+</html>

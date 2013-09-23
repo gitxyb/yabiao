@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+</head>
+<body>
+	<div id="main">
+		{% if user.is_authenticated %}
+			<p>welcome {{user.username}}</p>
+			<a href="/people_index/{{user.id}}/">个人主页</a>
+		{% else %}
+			<label>用户名：<input type="text" name="username" id="username"/></label>
+			<label>口令：<input type="password" name="password" id="password"/></label>
+			<input type="button" value="登录" onclick="login()" />
+		{% endif %}
+	</div>
+	<div id="personHomepage">
+	</div>
+	<a href="/regist/">注册</a>
+	<input type="button" value="登出" onclick="location.assign('/logout/')">
+	<hr/>
+	<div>
+		{% for i in sends %}
+			<h3>发帖人：{{i.user}}</h3>
+			<p>标题：{{i.u_title}}</p>
+			<p>时间：{{i.u_date}}</p>
+			<p>评论：（<a href="/replay/{{i.id}}/">{{i.replay_set.count}}</a>）</p>
+		{% endfor %}
+	</div>
+		{% for contact in sends.paginator.page_range %}
+	&nbsp;
+			{% if contact == sends.number %}
+				{{contact}}
+			{% else %}
+				<a href="?page={{contact}}" style="text-decoration:none">{{contact}}</a>
+			{% endif %} 
+		{% endfor %}
+	<div class="pagination">
+		<span class="step-links">
+			{% if sends.has_previous %}
+				<a href="?page={{sends.previous_page_number}}">上一页</a>
+			{% endif %}
+			<span class="current">
+				Page{{sends.number}} of {{sends.paginator.num_pages}}.
+			</span>
+			{% if sends.has_next %}
+				<a href="?page={{sends.next_page_number}}">下一页</a>
+			{% endif %}
+		</span>
+	</div>
+	<script>
+		function login(){
+			var username = document.getElementById('username').value;
+			var password = document.getElementById('password').value;
+			hl = new XMLHttpRequest;
+			hl.open("get","/login?username="+username+"&password="+password,true)
+			hl.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			hl.onreadystatechange = process;
+			hl.send()
+		}
+		function process(){
+			if (hl.readyState == 4 && hl.status == 200){
+				if (hl.responseText != ''){
+					var obj = document.getElementById('main');
+					var personHomepage = document.getElementById('personHomepage');
+					var responseobj = eval("(" + hl.responseText + ")");
+					obj.innerHTML = 'welcome '+ responseobj.username;
+					personHomepage.innerHTML  = "<a href='/people_index/"+responseobj.userid +"'>个人主页</a>"
+				}					
+			}	
+		}
+	</script>
+</body>
+</html>

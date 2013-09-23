@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf8">
+	<title></title>
+	<style>
+	</style>
+	<script>
+	</script>
+</head>
+<body>
+	<div>
+		{% for name in names %}
+			<blockquote>{{name}}</blockquote>
+			{% if forloop.counter|divisibleby:3 %}
+	</div>
+	<div>
+			{% endif %}
+		{% endfor %}
+	</div>
+</body>
+</html>
